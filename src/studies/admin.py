@@ -8,5 +8,5 @@ class ExperimentAdmin(admin.ModelAdmin):
     list_display = ("name", "percent_enabled", "is_enabled")
     search_fields = ("name",)
 
-    def has_add_permission(self, request):
+    def has_add_permission(self, request):  # pragma: no cover
         return False

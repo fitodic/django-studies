@@ -5,7 +5,7 @@ from laboratory import experiment
 from . import models
 
 
-class Experiment(experiment.Experiment):
+class ExperimentProxy(experiment.Experiment):
     model_class = models.Experiment
 
     def __init__(
@@ -19,9 +19,14 @@ class Experiment(experiment.Experiment):
         super().__init__(name, context, raise_on_mismatch)
 
     def get_experiment_config(self, name, percent_enabled):
-        return self.model_class.objects.get_or_create(
-            name=name, defaults={"percent_enabled": percent_enabled}
-        )
+        try:
+            obj = self.model_class.objects.get(name=name)
+        except self.model_class.DoesNotExist:
+            obj = self.model_class(name=name, percent_enabled=percent_enabled)
+            obj.full_clean()
+            obj.save()
+
+        return obj
 
     def enabled(self):
         return (
