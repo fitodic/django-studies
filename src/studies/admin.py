@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .models import Trial
+from .models import Experiment
 
 
-@admin.register(Trial)
-class TrialAdmin(admin.ModelAdmin):
+@admin.register(Experiment)
+class ExperimentAdmin(admin.ModelAdmin):
     list_display = ("name", "percent_enabled", "is_enabled")
     search_fields = ("name",)
 

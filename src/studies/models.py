@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from .validators import validate_percent
 
 
-class Trial(models.Model):
+class Experiment(models.Model):
     name = models.CharField(
         _("Name"),
         max_length=100,
@@ -20,8 +20,8 @@ class Trial(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Trial")
-        verbose_name_plural = _("Trials")
+        verbose_name = _("Experiment")
+        verbose_name_plural = _("Experiments")
         ordering = ["name"]
 
     def __str__(self):
