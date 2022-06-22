@@ -1,4 +1,6 @@
+from django.contrib import admin
 from django.db import models
+from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 
 from .validators import validate_percent
@@ -18,6 +20,13 @@ class Experiment(models.Model):
         default=0,
         help_text=_("Set it to 0 (zero) if you want to disable the trial."),
     )
+    first_run = models.DateTimeField(_("First run"), auto_now_add=True)
+    last_run = models.DateTimeField(
+        _("Last run"),
+        null=True,
+        default=None,
+        editable=False,
+    )
 
     class Meta:
         verbose_name = _("Experiment")
@@ -27,6 +36,10 @@ class Experiment(models.Model):
     def __str__(self):
         return f"{self.name} ({self.percent_enabled}%)"
 
-    @property
+    @admin.display(boolean=True)
     def is_enabled(self):
         return self.percent_enabled > 0
+
+    def mark_as_ran(self):
+        self.last_run = now()
+        self.save(update_fields=["last_run"])
