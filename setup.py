@@ -6,7 +6,8 @@ https://github.com/pypa/sampleproject
 """
 
 # Always prefer setuptools over distutils
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
+
 
 setup(
     package_dir={"": "src"},

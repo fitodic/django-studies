@@ -54,6 +54,7 @@ exclude = '''
     | build
     | dist
     | locale
+    | migrations
   )/
 )
 '''
