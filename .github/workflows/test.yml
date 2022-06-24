@@ -94,7 +94,7 @@ jobs:
       - name: Upload XML report
         uses: actions/upload-artifact@v2
         with:
-          name: report.xml
+          name: coverage.xml
           path: coverage.xml
 
   codecov:
@@ -109,6 +109,9 @@ jobs:
       - name: Download coverage data.
         uses: actions/download-artifact@v2
         with:
-          name: report.xml
+          name: coverage.xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
+        with:
+          files: coverage.xml
+          verbose: true
