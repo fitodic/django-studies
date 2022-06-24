@@ -48,7 +48,7 @@ jobs:
         python -m pip install --upgrade tox tox-gh-actions
 
     - name: Test with tox
-      run: tox -- --cov-report html
+      run: tox -- --cov-report xml:.coverage.xml
       env:
         DB_BACKEND: sqlite3
         DB_NAME: ":memory:"
