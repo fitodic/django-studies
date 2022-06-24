@@ -6,7 +6,7 @@ on:
       - "*"
   pull_request:
     branches:
-      - "master"
+      - "*"
   schedule:
     # Run weekly on Saturday
     - cron: '37 3 * * SAT'
