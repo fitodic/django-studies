@@ -44,7 +44,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade tox
       - name: Test with tox
-        run: tox -e lint,manifest
+        run: |
+          tox -e lint
+          tox -e manifest
+          tox -e changelog -- --draft
 
   test:
     name: Run the test suite
