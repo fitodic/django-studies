@@ -3,7 +3,7 @@ import logging
 
 from django.core.serializers.json import DjangoJSONEncoder
 
-from studies.proxies import ExperimentProxy
+from studies.experiments import Experiment
 
 
 logger = logging.getLogger()
@@ -25,7 +25,7 @@ class ExceptionalJSONEncoder(DjangoJSONEncoder):
             return str(o)
 
 
-class ExperimentWithLogging(ExperimentProxy):
+class ExperimentWithLogging(Experiment):
     """
     An override that provides logging support for demonstration
     purposes.

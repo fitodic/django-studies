@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .models import Experiment
+from .models import ExperimentConfig
 
 
-@admin.register(Experiment)
-class ExperimentAdmin(admin.ModelAdmin):
+@admin.register(ExperimentConfig)
+class ExperimentConfigAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "percent_enabled",

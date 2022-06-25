@@ -4,7 +4,7 @@ import pytest
 
 from django.urls import reverse
 
-from studies.models import Experiment
+from studies.models import ExperimentConfig
 
 
 pytestmark = [pytest.mark.django_db]
@@ -19,7 +19,7 @@ def test_view_with_matching_results(client, caplog):
 
     assert "Experiment ViewWithMatchingResults is a match" in caplog.messages
     assert (
-        Experiment.objects.get(name="ViewWithMatchingResults").last_run
+        ExperimentConfig.objects.get(name="ViewWithMatchingResults").last_run
         is not None
     )
 
@@ -36,7 +36,9 @@ def test_view_with_nonmatching_results(client, caplog):
         in caplog.messages
     )
     assert (
-        Experiment.objects.get(name="ViewWithNonMatchingResults").last_run
+        ExperimentConfig.objects.get(
+            name="ViewWithNonMatchingResults"
+        ).last_run
         is not None
     )
 
@@ -53,7 +55,9 @@ def test_view_with_exceptional_results(client, caplog):
         in caplog.messages
     )
     assert (
-        Experiment.objects.get(name="ViewWithExceptionalResults").last_run
+        ExperimentConfig.objects.get(
+            name="ViewWithExceptionalResults"
+        ).last_run
         is not None
     )
 
@@ -62,7 +66,9 @@ def test_experiment_is_disabled_after_exception(client, caplog):
     caplog.set_level(logging.INFO)
 
     client.get(reverse("exceptional-results"))
-    experiment = Experiment.objects.get(name="ViewWithExceptionalResults")
+    experiment = ExperimentConfig.objects.get(
+        name="ViewWithExceptionalResults"
+    )
     experiment.percent_enabled = 0
     experiment.save()
     experiment.refresh_from_db()

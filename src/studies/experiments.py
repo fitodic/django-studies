@@ -4,11 +4,11 @@ from laboratory import experiment
 
 from django.utils.functional import cached_property
 
-from . import models
+from .models import ExperimentConfig
 
 
-class ExperimentProxy(experiment.Experiment):
-    model_class = models.Experiment
+class Experiment(experiment.Experiment):
+    model_class = ExperimentConfig
 
     def __init__(
         self,
