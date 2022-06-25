@@ -50,91 +50,98 @@ Features
 
 * To run an experiment, instantiate the ``Experiment`` class, define the `control` and the `candidate` and `conduct` the experiment. For example, a simple Django class-based view with an experiment would look like (the one from the ``demo`` project):
 
-    .. code:: python
-        from studies.experiments import Experiment
+.. code:: python
+    from studies.experiments import Experiment
 
 
-        class ViewWithMatchingResults(View):
-            def get(self, request, *args, **kwargs):
-                with Experiment(
-                    name="ViewWithMatchingResults",
-                    context={"context_key": "context_value"},
-                    percent_enabled=100,
-                ) as experiment:
-                    arg = "match"
-                    kwargs = {"extra": "value"}
-                    experiment.control(
-                        self._get_control,
-                        context={"strategy": "control"},
-                        args=[arg],
-                        kwargs=kwargs,
-                    )
-                    experiment.candidate(
-                        self._get_candidate,
-                        context={"strategy": "candidate"},
-                        args=[arg],
-                        kwargs=kwargs,
-                    )
-                    data = experiment.conduct()
+    class ViewWithMatchingResults(View):
+        def get(self, request, *args, **kwargs):
+            with Experiment(
+                name="ViewWithMatchingResults",
+                context={"context_key": "context_value"},
+                percent_enabled=100,
+            ) as experiment:
+                arg = "match"
+                kwargs = {"extra": "value"}
+                experiment.control(
+                    self._get_control,
+                    context={"strategy": "control"},
+                    args=[arg],
+                    kwargs=kwargs,
+                )
+                experiment.candidate(
+                    self._get_candidate,
+                    context={"strategy": "candidate"},
+                    args=[arg],
+                    kwargs=kwargs,
+                )
+                data = experiment.conduct()
 
-                return JsonResponse(data)
+            return JsonResponse(data)
 
-            def _get_control(self, result, **kwargs):
-                return {"result": result, **kwargs}
+        def _get_control(self, result, **kwargs):
+            return {"result": result, **kwargs}
 
-            def _get_candidate(self, result, **kwargs):
-                return {"result": result, **kwargs}
+        def _get_candidate(self, result, **kwargs):
+            return {"result": result, **kwargs}
 
 * Adjust the percentage of users who'll be impacted by this experiment via the admin:
 
-    .. figure::  docs/images/admin.png
-        :align:  center
-        :alt:    The experiment's detail page in the admin
+.. figure::  docs/images/admin.png
+    :align:  center
+    :alt:    The experiment's detail page in the admin
 
 * To add support for your own reporting system, whether it's ``logging``, ``statsd`` or something else, override the ``Experiment`` class' ``publish`` method and make the call (another example from the ``demo`` project):
 
-    .. code:: python
-        from studies.experiments import Experiment
+.. code:: python
+    import logging
+    from studies.experiments import Experiment
 
 
-        class ExperimentWithLogging(Experiment):
-        """
-        An override that provides logging support for demonstration
-        purposes.
-        """
+    logger = logging.getLogger()
 
-        def publish(self, result):
-            if result.match:
-                logging.info(
-                    "Experiment %(name)s is a match",
-                    {"name": result.experiment.name},
+
+    class ExperimentWithLogging(Experiment):
+    """
+    An override that provides logging support for demonstration
+    purposes.
+    """
+
+    def publish(self, result):
+        if result.match:
+            logging.info(
+                "Experiment %(name)s is a match",
+                {"name": result.experiment.name},
+            )
+        else:
+            control_observation = result.control
+            candidate_observation = result.candidates[0]
+            logging.info(
+                json.dumps(
+                    control_observation.__dict__,
+                    cls=ExceptionalJSONEncoder,  # defined in `demo.overrides`
                 )
-            else:
-                control_observation = result.control
-                candidate_observation = result.candidates[0]
-                logging.info(
-                    json.dumps(
-                        control_observation.__dict__,
-                        cls=ExceptionalJSONEncoder,  # defined in `demo.overrides`
-                    )
+            )
+            logging.info(
+                json.dumps(
+                    candidate_observation.__dict__,
+                    cls=ExceptionalJSONEncoder,
                 )
-                logging.info(
-                    json.dumps(
-                        candidate_observation.__dict__,
-                        cls=ExceptionalJSONEncoder,
-                    )
-                )
-                logging.error(
-                    "Experiment %(name)s is not a match",
-                    {"name": result.experiment.name},
-                )
+            )
+            logging.error(
+                "Experiment %(name)s is not a match",
+                {"name": result.experiment.name},
+            )
 
 * Override any method from ``laboratory``'s ``Experiment`` class, including `how you make the comparison <https://github.com/joealcorn/laboratory#controlling-comparison>`_:
 
-    .. code:: python
-        class MyExperiment(Experiment):
-            def compare(self, control, candidate):
-                return control.value['id'] == candidate.value['id']
+.. code:: python
+    from studies.experiments import Experiment
+
+
+    class MyExperiment(Experiment):
+        def compare(self, control, candidate):
+            return control.value['id'] == candidate.value['id']
 
 
 Caveats
