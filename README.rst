@@ -10,10 +10,10 @@ django-studies
     :alt: Test coverage status
 
 Have you ever found yourself in a situation where you've made changes to
-some functionality, all the tests are passing, manual tests seem OK, but
-you're still not convinced that you covered all use-cases?
+some functionality, all the tests are passing, manual tests look OK, but
+you're still not convinced that you've covered all of the edge-cases?
 
-Maybe you want to try it out on a limited amount of users for a certain
+Maybe you want to try it out on a limited set of users for a certain
 period of time just to flesh out all the cases you've missed. Or you
 just want to run a couple of experiments and study the effects without
 severely impacting the users in a negative way.
