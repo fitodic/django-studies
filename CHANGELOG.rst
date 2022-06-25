@@ -8,6 +8,15 @@ Changes for the upcoming release can be found in the `changelog.d` directory in 
 
 .. towncrier release notes start
 
+v0.1.0 (2022-06-25)
+===================
+
+Bugfixes
+--------
+
+- Fix the changelog's link generation to generate RST links. (`PR#2 <https://github.com/fitodic/django-studies/pull/2)>`_)
+
+
 0.1.0 (2022-06-25)
 ===================
 
