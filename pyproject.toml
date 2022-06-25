@@ -7,7 +7,7 @@ requires = ["setuptools>=40.7.0", "wheel>=0.31.1"]
     filename = "CHANGELOG.rst"
     directory = "changelog.d"
     title_format = "v{version} ({project_date})"
-    issue_format = "[#{issue}](https://github.com/fitodic/django-studies/pull/{issue})"
+    issue_format = "`PR#{issue} <https://github.com/fitodic/django-studies/pull/{issue})>`_"
 
     [[tool.towncrier.section]]
         path = ""

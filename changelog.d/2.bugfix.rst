@@ -1,0 +1,1 @@
+Fix the changelog's link generation to generate RST links.

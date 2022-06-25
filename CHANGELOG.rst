@@ -14,4 +14,4 @@ Changes for the upcoming release can be found in the `changelog.d` directory in 
 Features
 --------
 
-- Integrate the ``laboratory`` library and integrate it with ``Django`` by creating a wrapper around ``laboratory.Experiment`` and a ``ExperimentConfig`` model that will allow users to adjust the percentage of impact ``percent_enabled``. ([#1](https://github.com/fitodic/django-studies/pull/1))
+- Integrate the ``laboratory`` library and integrate it with ``Django`` by creating a wrapper around ``laboratory.Experiment`` and a ``ExperimentConfig`` model that will allow users to adjust the percentage of impact ``percent_enabled``. (`PR#1 <https://github.com/fitodic/django-studies/pull/1)>`_)
