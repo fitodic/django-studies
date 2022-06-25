@@ -50,6 +50,7 @@ Features
 
 * To run an experiment, instantiate the ``Experiment`` class, define the `control` and the `candidate` and `conduct` the experiment. For example, a simple Django class-based view with an experiment would look like (the one from the ``demo`` project):
 
+
 .. code:: python
     from studies.experiments import Experiment
 
@@ -93,6 +94,7 @@ Features
 
 * To add support for your own reporting system, whether it's ``logging``, ``statsd`` or something else, override the ``Experiment`` class' ``publish`` method and make the call (another example from the ``demo`` project):
 
+
 .. code:: python
     import logging
     from studies.experiments import Experiment
@@ -134,6 +136,7 @@ Features
             )
 
 * Override any method from ``laboratory``'s ``Experiment`` class, including `how you make the comparison <https://github.com/joealcorn/laboratory#controlling-comparison>`_:
+
 
 .. code:: python
     from studies.experiments import Experiment
