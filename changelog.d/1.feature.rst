@@ -1,0 +1,1 @@
+Integrate the ``laboratory`` library and integrate it with ``Django`` by creating a wrapper around ``laboratory.Experiment`` and a ``ExperimentConfig`` model that will allow users to adjust the percentage of impact ``percent_enabled``.

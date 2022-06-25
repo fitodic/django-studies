@@ -162,3 +162,9 @@ bugs.
 
 At the moment, this library doesn't provide a safe write mechanism to
 mitigate this situation, but it may in the future.
+
+
+Contributing
+^^^^^^^^^^^^
+
+To contribute to this project, take a look at `CONTRIBUTING.rst <./CONTRIBUTING.rst>`_.
