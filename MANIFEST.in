@@ -1,9 +1,9 @@
 include LICENSE MANIFEST.in *.md *.rst *.toml *.yml *.ini *.cfg
 
+recursive-include docs *
 recursive-include src/studies *
 recursive-include tests *
 
-recursive-exclude docs *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 recursive-exclude html *
