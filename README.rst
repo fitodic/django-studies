@@ -1,7 +1,7 @@
 django-studies
 ==============
 
-.. image:: https://github.com/fitodic/django-studies/actions/workflows/build.yml/badge.svg?event=push
+.. image:: https://github.com/fitodic/django-studies/actions/workflows/ci.yml/badge.svg?event=push
     :target: https://github.com/fitodic/django-studies/actions
     :alt: Build status
 
