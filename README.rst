@@ -1,11 +1,11 @@
 django-studies
 ==============
 
-.. |build| image:: https://github.com/github/docs/actions/workflows/test.yml/badge.svg?event=push
+.. image:: https://github.com/github/docs/actions/workflows/test.yml/badge.svg?event=push
     :target: https://github.com/fitodic/django-studies/actions
     :alt: Build status
 
-.. |coverage| image:: https://codecov.io/gh/fitodic/django-studies/branch/master/graph/badge.svg?token=S2WQ9OTR9O
+.. image:: https://codecov.io/gh/fitodic/django-studies/branch/master/graph/badge.svg?token=S2WQ9OTR9O
     :target: https://codecov.io/gh/fitodic/django-studies
     :alt: Test coverage status
 
