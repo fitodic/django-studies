@@ -23,7 +23,7 @@ Inspired by `GitHub's Scientist
 `RealGeeks' lab_tech <https://github.com/RealGeeks/lab_tech>`_, this
 project brings
 `Joe Alcorn's laboratory <https://github.com/joealcorn/laboratory>`_ to
-`Django's world <https://github.com/django/django>`_ to not only allow
+`Django <https://github.com/django/django>`_'s world not only to allow
 you to run experiments, but to dynamically modify their impact on users.
 
 Installation
