@@ -52,6 +52,7 @@ Features
 
 
 .. code:: python
+
     from studies.experiments import Experiment
 
 
@@ -96,6 +97,7 @@ Features
 
 
 .. code:: python
+
     import logging
     from studies.experiments import Experiment
 
@@ -139,6 +141,7 @@ Features
 
 
 .. code:: python
+
     from studies.experiments import Experiment
 
 
