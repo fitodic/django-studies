@@ -13,7 +13,11 @@ Have you ever found yourself in a situation where you've made changes to
 some functionality, all the tests are passing, manual tests look OK, but
 you're still not convinced that you've covered all of the edge-cases?
 
-Maybe you want to try it out on a limited set of users for a certain
+You know your new implementation is faster or more stable, but you still
+have the feeling you're missing something. Wouldn't it be great if you 
+could run both implementations side-by-side and compare the results?
+
+Maybe you'd want to try it out on a limited set of users for a certain
 period of time just to flesh out all the cases you've missed. Or you
 just want to run a couple of experiments and study the effects without
 severely impacting the users in a negative way.
@@ -25,6 +29,9 @@ project brings
 `Joe Alcorn's laboratory <https://github.com/joealcorn/laboratory>`_ to
 `Django <https://github.com/django/django>`_'s world not only to allow
 you to run experiments, but to dynamically modify their impact on users.
+This would give you the confirmations and the peace of mind you're 
+looking for *and* your users wouldn't be inconvenienced by potential 
+errors.
 
 Installation
 ^^^^^^^^^^^^
