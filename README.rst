@@ -35,7 +35,7 @@ To use this library, install it using ``pip``
 
     pip install django-studies
 
-and register the Django app in your ``settings.py``:
+register the Django app in your ``settings.py``:
 
 .. code:: python
 
@@ -44,6 +44,12 @@ and register the Django app in your ``settings.py``:
         # ...
         "studies",
     ]
+    
+and run the migrations:
+
+.. code:: bash
+
+    python manage.py studies
 
 Features
 ^^^^^^^^
