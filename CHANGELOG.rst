@@ -8,6 +8,21 @@ Changes for the upcoming release can be found in the `changelog.d` directory in 
 
 .. towncrier release notes start
 
+v0.1.1 (2022-10-03)
+===================
+
+Bugfixes
+--------
+
+- The experiment was marked as disabled when the random number generator generated the same values as was the `percent_enabled`. (`PR#3 <https://github.com/fitodic/django-studies/pull/3)>`_)
+
+
+Misc
+----
+
+- Drop Python 3.8 from the CI pipeline and add Django 4.1 to the CI pipeline (`PR#3 <https://github.com/fitodic/django-studies/pull/3)>`_)
+
+
 0.1.1 (2022-06-25)
 ===================
 

@@ -1,1 +1,0 @@
-Drop Python 3.8 from the CI pipeline and add Django 4.1 to the CI pipeline
