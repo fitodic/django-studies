@@ -56,5 +56,5 @@ class Experiment(experiment.Experiment):
         """
         return (
             self._experiment.is_enabled()
-            and randint(1, 100) < self._experiment.percent_enabled
+            and randint(1, 100) <= self._experiment.percent_enabled
         )
