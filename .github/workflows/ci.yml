@@ -116,9 +116,6 @@ jobs:
           pattern: coverage-data-*
           merge-multiple: true
 
-      - name: List Files
-        run: ls -R
-
       - name: Combine coverage & check percentage
         run: |
           python -m coverage combine
