@@ -113,6 +113,9 @@ jobs:
         with:
           name: coverage-data
 
+      - name: List Files
+        run: ls -R
+
       - name: Combine coverage & check percentage
         run: |
           python -m coverage combine
