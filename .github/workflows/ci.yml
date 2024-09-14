@@ -121,14 +121,14 @@ jobs:
           python -m coverage xml
 
       - name: Upload HTML report if check failed.
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: html-report
           path: htmlcov
         if: ${{ failure() }}
 
       - name: Upload XML report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: coverage.xml
           path: coverage.xml
@@ -188,7 +188,7 @@ jobs:
         run: tox -e build
 
       - name: Upload distributions
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: "dist/*"
