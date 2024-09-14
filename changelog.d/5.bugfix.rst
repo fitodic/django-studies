@@ -1,0 +1,1 @@
+Fix the CI and test against Python versions 3.11 and 3.12, as well as Django 4.1+
